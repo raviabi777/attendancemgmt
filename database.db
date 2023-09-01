@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS students (
+    id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL,
+    name TEXT,
+    email TEXT,
+    -- Add other relevant fields here
+);
+CREATE TABLE IF NOT EXISTS attendance (
+    id INTEGER PRIMARY KEY,
+    student_id INTEGER NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
